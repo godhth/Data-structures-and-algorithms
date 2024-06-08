@@ -34,7 +34,7 @@ public class BubbleSort {
         for (int i = 0; i < length-1; i++) {
             //array.length - 1 - i表示第array.length - 1 - i之后的元素顺序已经正确，无需再比较。
             for (int j = 0; j < length - 1 - i; j++) {
-                printArray(array);
+                ArrayUtil.printArray(array);
                 printMark(j);
                 if (array[j] > array[j + 1]) {
                     System.out.print("    "+array[j] + "========>>" + array[j + 1]);
@@ -46,7 +46,7 @@ public class BubbleSort {
             }
             System.out.println("--------------------------------------");
         }
-        printArray(array);
+        ArrayUtil.printArray(array);
     }
 
     /**
@@ -60,7 +60,7 @@ public class BubbleSort {
             boolean swapped = false;
             //array.length - 1 - i表示第array.length - 1 - i之后的元素顺序已经正确，无需再比较。
             for (int j = 0; j < length - 1 - i; j++) {
-                printArray(array);
+                ArrayUtil.printArray(array);
                 printMark(j);
                 if (array[j] > array[j + 1]) {
                     System.out.print("    "+array[j] + "========>>" + array[j + 1]);
@@ -76,11 +76,9 @@ public class BubbleSort {
             }
             System.out.println("--------------------------------------");
         }
-        printArray(array);
+        ArrayUtil.printArray(array);
     }
-    private static void printArray(int[] array) {
-        System.out.println(Arrays.stream(array).mapToObj(String::valueOf).collect(Collectors.joining(",")));
-    }
+
 
     private static void printMark(int j) {
         for (int i = 0; i < j; i++) {
@@ -90,12 +88,9 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        Random random = new Random();
-        int[] randomArray = IntStream.generate(() -> random.nextInt(100))
-                .limit(10)
-                .toArray();
+        int[] randomArray = ArrayUtil.randomArray(10);
 
-        printArray(randomArray);
+        ArrayUtil.printArray(randomArray);
         System.out.println("begin--------------------------------------");
 
         //bubbleSort(randomArray);
